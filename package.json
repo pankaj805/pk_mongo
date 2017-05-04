@@ -1,6 +1,6 @@
 {
   "name": "pkmongo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mongo DB helper",
   "main": "index.js",
   "scripts": {
