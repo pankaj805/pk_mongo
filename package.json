@@ -1,0 +1,31 @@
+{
+  "name": "pkmongo",
+  "version": "1.0.0",
+  "description": "Mongo DB helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankaj805/pk_mongo.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "node",
+    "nodejs",
+    "nodejs-mongo"
+  ],
+  "author": "Pankaj Panigrahi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pankaj805/pk_mongo/issues"
+  },
+  "homepage": "https://github.com/pankaj805/pk_mongo#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "mongodb": "^2.2.26",
+    "underscore": "^1.8.3"
+  }
+}
