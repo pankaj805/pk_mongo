@@ -291,9 +291,7 @@ MongoHelper.pullFromSet = (collectionName, criteria, fieldName, valueToRemove) =
     transformIdToObjectId(criteria);
     let removeFromSet ={};
     removeFromSet[fieldName]= valueToRemove;
-
     console.log(removeFromSet);
-
     return new Promise((resolve, reject) => {
         db.collection(collectionName).updateOne(criteria, {$pull: removeFromSet}, (err, result) => {
             if (err) {

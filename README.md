@@ -19,7 +19,7 @@ In your app.js file intialize the MongoHelper as below:
 var MongoHelper = require('pkmongo').MongoHelper;
 // or
 // import {MongoHelper} from 'pkmongo';
-MongoHelper.initialize('mongodb://localhost:27017/runtrack');
+MongoHelper.initialize('mongodb://localhost:27017/test');
 ```
 
 Then wherever you need to run some mongo query, use it as below:
@@ -47,6 +47,12 @@ For eg.
                // your code
             });
 ```
+#Demo
+A working demo can be found in the following repo:
+```
+https://github.com/pankaj805/BasicNodeApp
+```
+
 # API Documentation
 
 ### create
