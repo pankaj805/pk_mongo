@@ -212,6 +212,19 @@ MongoHelper.create = (collectionName, data) => {
         });
 }
 
+MongoHelper.insertOne = (collectionName, data) => {
+    return db.collection(collectionName).insertOne(data)
+        .then((r) => {
+            console.log('inserting >>>');
+            console.log(JSON.stringify(r));
+            return Promise.resolve(r);
+        })
+        .catch((err) => {
+            console.log('error', err);
+            return Promise.reject(err);
+        });
+}
+
 MongoHelper.update = (collectionName, criteria, dataToUpdate) => {
     transformIdToObjectId(criteria);
     return db.collection(collectionName).updateOne(criteria, {$set: dataToUpdate})
@@ -222,6 +235,18 @@ MongoHelper.update = (collectionName, criteria, dataToUpdate) => {
             return Promise.reject(err);
         })
 }
+
+
+MongoHelper.updateOneByCriteria = (collectionName, criteria, dataToUpdate) => {
+    return db.collection(collectionName).updateOne(criteria, {$set: dataToUpdate})
+        .then((r) => {
+            return Promise.resolve(r.matchedCount);
+        })
+        .catch((err) => {
+            return Promise.reject(err);
+        })
+}
+
 
 function incrementByVal(collectionName, criteria, fieldToIncrement, incrementByVal) {
     transformIdToObjectId(criteria);
