@@ -202,7 +202,7 @@ MongoHelper.findIntersectingDoc = (collectionName, polygonField, latitude, longi
 MongoHelper.create = (collectionName, data) => {
     return db.collection(collectionName).insertOne(data)
         .then((r) => {
-            console.log('inserting >>>');
+            console.log('inserting >>> r:',r);
             console.log(JSON.stringify(r));
             return Promise.resolve(r.insertedId);
         })
@@ -215,9 +215,7 @@ MongoHelper.create = (collectionName, data) => {
 MongoHelper.insertOne = (collectionName, data) => {
     return db.collection(collectionName).insertOne(data)
         .then((r) => {
-            console.log('inserting >>>');
-            console.log(JSON.stringify(r));
-            return Promise.resolve(r);
+            return Promise.resolve(r.ops[0]);
         })
         .catch((err) => {
             console.log('error', err);
@@ -250,7 +248,7 @@ MongoHelper.updateOneByCriteria = (collectionName, criteria, dataToUpdate) => {
 
 function incrementByVal(collectionName, criteria, fieldToIncrement, incrementByVal) {
     transformIdToObjectId(criteria);
-    return db.collection(collectionName).updateOne(criteria, {$inc: {[fieldToIncrement]: incrementByVal}})
+    return db.collection(collectionName).updateOne(criteria, {$inc: {[fieldToIncrement]: incrementByVal}},{upsert:true})
         .then((r) => {
             return Promise.resolve(r.matchedCount);
         })
