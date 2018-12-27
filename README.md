@@ -9,6 +9,10 @@ The idealogies which were kept in mind are:
 * Simple and light library
 * Easy to use
 
+If you want to learn how to use pkmongo library, please see this sample application
+https://github.com/pankaj805/BasicNodeApp
+
+
 # API Documentation
 
 ### create
